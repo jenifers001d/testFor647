@@ -4,6 +4,9 @@
 # misc
 .DS_Store
 
+# indexDir
+IndexStoredPosition/
+
 # User-specific files
 *.suo
 *.user
