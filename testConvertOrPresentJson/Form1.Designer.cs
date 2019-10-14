@@ -48,13 +48,15 @@
             this.resultText = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultURL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.resultRank = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.resultScore = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 21);
+            this.label1.Location = new System.Drawing.Point(28, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 16);
             this.label1.TabIndex = 0;
@@ -62,16 +64,16 @@
             // 
             // resourceDir
             // 
-            this.resourceDir.Location = new System.Drawing.Point(31, 47);
+            this.resourceDir.Location = new System.Drawing.Point(31, 51);
             this.resourceDir.Name = "resourceDir";
-            this.resourceDir.Size = new System.Drawing.Size(278, 22);
+            this.resourceDir.Size = new System.Drawing.Size(278, 20);
             this.resourceDir.TabIndex = 1;
             // 
             // resourceBrowerBtn
             // 
-            this.resourceBrowerBtn.Location = new System.Drawing.Point(353, 46);
+            this.resourceBrowerBtn.Location = new System.Drawing.Point(353, 50);
             this.resourceBrowerBtn.Name = "resourceBrowerBtn";
-            this.resourceBrowerBtn.Size = new System.Drawing.Size(75, 21);
+            this.resourceBrowerBtn.Size = new System.Drawing.Size(75, 23);
             this.resourceBrowerBtn.TabIndex = 2;
             this.resourceBrowerBtn.Text = "Brower";
             this.resourceBrowerBtn.UseVisualStyleBackColor = true;
@@ -81,7 +83,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(28, 88);
+            this.label2.Location = new System.Drawing.Point(28, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 16);
             this.label2.TabIndex = 3;
@@ -89,16 +91,16 @@
             // 
             // indexDir
             // 
-            this.indexDir.Location = new System.Drawing.Point(31, 115);
+            this.indexDir.Location = new System.Drawing.Point(31, 125);
             this.indexDir.Name = "indexDir";
-            this.indexDir.Size = new System.Drawing.Size(278, 22);
+            this.indexDir.Size = new System.Drawing.Size(278, 20);
             this.indexDir.TabIndex = 4;
             // 
             // indexBrowerBtn
             // 
-            this.indexBrowerBtn.Location = new System.Drawing.Point(353, 112);
+            this.indexBrowerBtn.Location = new System.Drawing.Point(353, 121);
             this.indexBrowerBtn.Name = "indexBrowerBtn";
-            this.indexBrowerBtn.Size = new System.Drawing.Size(75, 21);
+            this.indexBrowerBtn.Size = new System.Drawing.Size(75, 23);
             this.indexBrowerBtn.TabIndex = 5;
             this.indexBrowerBtn.Text = "Brower";
             this.indexBrowerBtn.UseVisualStyleBackColor = true;
@@ -106,9 +108,9 @@
             // 
             // buildIndexBtn
             // 
-            this.buildIndexBtn.Location = new System.Drawing.Point(193, 158);
+            this.buildIndexBtn.Location = new System.Drawing.Point(193, 171);
             this.buildIndexBtn.Name = "buildIndexBtn";
-            this.buildIndexBtn.Size = new System.Drawing.Size(75, 21);
+            this.buildIndexBtn.Size = new System.Drawing.Size(75, 23);
             this.buildIndexBtn.TabIndex = 7;
             this.buildIndexBtn.Text = "Index";
             this.buildIndexBtn.UseVisualStyleBackColor = true;
@@ -118,7 +120,7 @@
             // 
             this.LabelQuery.AutoSize = true;
             this.LabelQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelQuery.Location = new System.Drawing.Point(28, 199);
+            this.LabelQuery.Location = new System.Drawing.Point(28, 216);
             this.LabelQuery.Name = "LabelQuery";
             this.LabelQuery.Size = new System.Drawing.Size(78, 16);
             this.LabelQuery.TabIndex = 8;
@@ -126,17 +128,17 @@
             // 
             // TextBoxQueryInput
             // 
-            this.TextBoxQueryInput.Location = new System.Drawing.Point(31, 218);
+            this.TextBoxQueryInput.Location = new System.Drawing.Point(31, 236);
             this.TextBoxQueryInput.Name = "TextBoxQueryInput";
-            this.TextBoxQueryInput.Size = new System.Drawing.Size(278, 22);
+            this.TextBoxQueryInput.Size = new System.Drawing.Size(278, 20);
             this.TextBoxQueryInput.TabIndex = 9;
             this.TextBoxQueryInput.TextChanged += new System.EventHandler(this.TextBoxQueryInput_TextChanged);
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(426, 272);
+            this.SearchButton.Location = new System.Drawing.Point(426, 295);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(75, 21);
+            this.SearchButton.Size = new System.Drawing.Size(75, 23);
             this.SearchButton.TabIndex = 10;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
@@ -146,7 +148,7 @@
             // 
             this.LabelIndexForSearch.AutoSize = true;
             this.LabelIndexForSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelIndexForSearch.Location = new System.Drawing.Point(28, 252);
+            this.LabelIndexForSearch.Location = new System.Drawing.Point(28, 273);
             this.LabelIndexForSearch.Name = "LabelIndexForSearch";
             this.LabelIndexForSearch.Size = new System.Drawing.Size(165, 16);
             this.LabelIndexForSearch.TabIndex = 11;
@@ -154,17 +156,17 @@
             // 
             // IndexDirSearch
             // 
-            this.IndexDirSearch.Location = new System.Drawing.Point(31, 272);
+            this.IndexDirSearch.Location = new System.Drawing.Point(31, 295);
             this.IndexDirSearch.Name = "IndexDirSearch";
-            this.IndexDirSearch.Size = new System.Drawing.Size(278, 22);
+            this.IndexDirSearch.Size = new System.Drawing.Size(278, 20);
             this.IndexDirSearch.TabIndex = 12;
             this.IndexDirSearch.TextChanged += new System.EventHandler(this.IndexDirSearch_TextChanged);
             // 
             // IndexBrowseSearchBtn
             // 
-            this.IndexBrowseSearchBtn.Location = new System.Drawing.Point(324, 272);
+            this.IndexBrowseSearchBtn.Location = new System.Drawing.Point(324, 295);
             this.IndexBrowseSearchBtn.Name = "IndexBrowseSearchBtn";
-            this.IndexBrowseSearchBtn.Size = new System.Drawing.Size(75, 21);
+            this.IndexBrowseSearchBtn.Size = new System.Drawing.Size(75, 23);
             this.IndexBrowseSearchBtn.TabIndex = 13;
             this.IndexBrowseSearchBtn.Text = "Brower";
             this.IndexBrowseSearchBtn.UseVisualStyleBackColor = true;
@@ -173,14 +175,18 @@
             // resultListView
             // 
             this.resultListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.resultText,
+            this.resultRank,
+            this.resultScore,
+            this.resultTitle,
             this.resultURL,
-            this.resultTitle});
+            this.resultText});
+            this.resultListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultListView.FullRowSelect = true;
             this.resultListView.GridLines = true;
-            this.resultListView.Location = new System.Drawing.Point(31, 317);
+            this.resultListView.Location = new System.Drawing.Point(31, 343);
+            this.resultListView.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.resultListView.Name = "resultListView";
-            this.resultListView.Size = new System.Drawing.Size(492, 242);
+            this.resultListView.Size = new System.Drawing.Size(821, 262);
             this.resultListView.TabIndex = 14;
             this.resultListView.UseCompatibleStateImageBehavior = false;
             this.resultListView.View = System.Windows.Forms.View.Details;
@@ -189,22 +195,33 @@
             // resultText
             // 
             this.resultText.Text = "Text";
-            this.resultText.Width = 172;
+            this.resultText.Width = 420;
             // 
             // resultURL
             // 
             this.resultURL.Text = "URL";
-            this.resultURL.Width = 161;
+            this.resultURL.Width = 170;
             // 
             // resultTitle
             // 
             this.resultTitle.Text = "Title";
+            this.resultTitle.Width = 170;
+            // 
+            // resultRank
+            // 
+            this.resultRank.Text = "Rank";
+            this.resultRank.Width = 50;
+            // 
+            // resultScore
+            // 
+            this.resultScore.Text = "Score";
+            this.resultScore.Width = 75;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 609);
+            this.ClientSize = new System.Drawing.Size(974, 660);
             this.Controls.Add(this.resultListView);
             this.Controls.Add(this.IndexBrowseSearchBtn);
             this.Controls.Add(this.IndexDirSearch);
@@ -248,6 +265,8 @@
         private System.Windows.Forms.ColumnHeader resultText;
         private System.Windows.Forms.ColumnHeader resultURL;
         private System.Windows.Forms.ColumnHeader resultTitle;
+        private System.Windows.Forms.ColumnHeader resultRank;
+        private System.Windows.Forms.ColumnHeader resultScore;
     }
 }
 

@@ -26,7 +26,7 @@ namespace testConvertOrPresentJson
         }
 
         //public static string SearchIndex_Click(string queryText, string indexPath)
-        public static List<List<string>> SearchIndex_Click(string queryText, string indexPath)
+        public static List<Dictionary<string, string>> SearchIndex_Click(string queryText, string indexPath)
         {
             LuceneIndexSearch mySearch = new LuceneIndexSearch();
             mySearch.CreateSearcher(indexPath);

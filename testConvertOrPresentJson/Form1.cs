@@ -19,7 +19,7 @@ namespace testConvertOrPresentJson
         string resourcePath = null;
         string indexPath = null;
 
-        List<List<string>> resultListDict; // Create global result list in type of list of dictionaries
+        List<Dictionary<string, string>> resultListDict; // Create global result list in type of list of dictionaries
         int limit;              // Create document starting index variable
 
 
@@ -47,18 +47,7 @@ namespace testConvertOrPresentJson
         private void buildIndexBtn_Click(object sender, EventArgs e)
         {
             if (indexPath != null && resourcePath != null) {
-                //FileStream fs = new FileStream(resourcePath+ "/collection.json", FileMode.Open,FileAccess.Read);
-                //StreamReader sr = new StreamReader(fs);
-
-                //Data jsonToObj = (JsonConvert.DeserializeObject<List<Data>>(sr.ReadToEnd()))[0];
-                //JArray jArr = JArray.Parse(sr.ReadToEnd());
-                //JToken o = jArr[0]["passages"][0]["passage_text"];
-                //string jsonData = JsonConvert.SerializeObject(jsonToObj);
-                //resultTextBox.Text =  JsonConvert.SerializeObject(jsonToObj);
-                //resultTextBox.Text = o.ToString();
-
                 Program.BuildIndex_Click(resourcePath, indexPath);
-
             }
         }
 
@@ -106,7 +95,7 @@ namespace testConvertOrPresentJson
         }
 
         //[Sam] Present the result of the first ten rank on ListView 
-        public void ViewData(int limit, List<List<string>> resultListDict)    // Create global method for viewing the data
+        public void ViewData(int limit, List<Dictionary<string, string>> resultListDict)    // Create global method for viewing the data
         {
             resultListView.Items.Clear();
             resultListView.Controls.Clear();        // Clear current listview
@@ -122,7 +111,8 @@ namespace testConvertOrPresentJson
             for (int i = limit; i < end; i++)     // Loop through current 10 results
             {
                 // Add result details into the listview
-                ListViewItem lvi = new ListViewItem(new[] { resultListDict[i][0], resultListDict[i][1] });
+                ListViewItem lvi = new ListViewItem(new[] { resultListDict[i]["rank"], resultListDict[i]["score"],
+                    resultListDict[i]["title"], resultListDict[i]["url"], resultListDict[i]["text"] });
                 resultListView.Items.Add(lvi);
             }
         }

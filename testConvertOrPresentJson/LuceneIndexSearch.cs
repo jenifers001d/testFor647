@@ -11,6 +11,7 @@ using Lucene.Net.Search; // for IndexSearcher
 using Lucene.Net.QueryParsers;  // for QueryParser
 using System.IO;
 using Newtonsoft.Json.Linq;
+using System.Text.RegularExpressions;
 
 namespace testConvertOrPresentJson
 {
@@ -55,7 +56,7 @@ namespace testConvertOrPresentJson
         /// Indexes a given string into the index
         /// </summary>
         /// <param name="text">The text to index</param>
-        public string IndexText(string resourcePath)
+        public void IndexText(string resourcePath)
         {
             FileStream fs = new FileStream(resourcePath + "/collection.json", FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
@@ -79,9 +80,7 @@ namespace testConvertOrPresentJson
                 }
             }
             
-
             sr.Close();
-            return "Done!";
         }
 
         /// <summary>
@@ -125,9 +124,9 @@ namespace testConvertOrPresentJson
         /// </summary>
         /// <param name="querytext">The text to search the index</param>
         //public string SearchIndext(string querytext)
-        public List<List<string>> SearchIndext(string querytext)
+        public List<Dictionary<string, string>> SearchIndext(string querytext)
         {
-            List<List<string>> resultListDict = new List<List<string>>();      // Initiate a result list
+            List<Dictionary<string, string>> resultListDict = new List<Dictionary<string, string>>();      // Initiate a result list
 
             System.Console.WriteLine("Searching for " + querytext);
             querytext = querytext.ToLower();
@@ -139,22 +138,29 @@ namespace testConvertOrPresentJson
             // ScoreDocs : a array stores pointers of a query
             // scoreDoc : a pointer of a query points to doc_ID and score (of the doc for the query)
             //string output = "";
-            foreach (ScoreDoc scoreDoc in results.ScoreDocs)
-            {
-                rank++;
-                Lucene.Net.Documents.Document doc = searcher.Doc(scoreDoc.Doc);
-                string myFieldValue = doc.Get(TEXT_FN);
-                string myURL = doc.Get(TEXT_FN_URL);
+            if (results.TotalHits != 0) { // Check if there are results
+                foreach (ScoreDoc scoreDoc in results.ScoreDocs)
+                {
+                    rank++;
+                    Lucene.Net.Documents.Document doc = searcher.Doc(scoreDoc.Doc);
+                    string myFieldValue = doc.Get(TEXT_FN);
+                    string myURL = doc.Get(TEXT_FN_URL);
+                    string score = scoreDoc.Score.ToString();
 
-                Explanation e = searcher.Explain(query, scoreDoc.Doc);
-                //output += "Rank " + rank + " text " + myFieldValue + " \r\n URL " + myURL + "\r\n\r\n";
+                    Explanation e = searcher.Explain(query, scoreDoc.Doc);
 
-                resultListDict.Add(new List<string> { myFieldValue, myURL });
+                    char delimiters = '/';
+                    string[] urlSeg = myURL.Split(delimiters);
 
-                //Console.WriteLine("Rank " + rank + " text " + myFieldValue + " URL " + myURL);
-                //Console.WriteLine(e);
-                
+                    resultListDict.Add(new Dictionary<string, string> { { "rank", rank.ToString() }, {"score", score },
+                        { "title", urlSeg[2] }, { "url", myURL }, { "text", myFieldValue }, });
+
+                    //Console.WriteLine("Rank " + rank + " text " + myFieldValue + " URL " + myURL);
+                    //Console.WriteLine(e);
+
+                }
             }
+            
             return resultListDict;
 
         }
