@@ -18,6 +18,7 @@ namespace testConvertOrPresentJson
 
         string resourcePath = null;
         string indexPath = null;
+        string saveResultPath = null;
 
         List<Dictionary<string, string>> resultListDict; // Create global result list in type of list of dictionaries
         int limit;              // Create document starting index variable
@@ -79,9 +80,15 @@ namespace testConvertOrPresentJson
 
                 //[Sam] Put the result into ListView               
                 resultListDict = Program.SearchIndex_Click(queries, IndexDirSearch.Text);
-                limit = 0;
-                currentPage = 1;
+                limit = 0;               
                 totalPage = Convert.ToInt32(Math.Ceiling((double)resultListDict.Count / 10));
+                if (totalPage == 0)
+                {
+                    currentPage = 0;
+                }
+                else {
+                    currentPage = 1;
+                }
                 Console.WriteLine(resultListDict.Count);
                 Console.WriteLine(totalPage);
                 pageLabel.Text = "Page " + currentPage + " of " + totalPage;
@@ -89,6 +96,7 @@ namespace testConvertOrPresentJson
                     nextBtn.Enabled = true;
                 }
                 ViewData(limit, resultListDict);
+                saveResultBtn.Enabled = true;
             }
         }
 
@@ -153,7 +161,7 @@ namespace testConvertOrPresentJson
             for (int i = limit; i < end; i++)     // Loop through current 10 results
             {
                 // Add result details into the listview
-                ListViewItem lvi = new ListViewItem(new[] { resultListDict[i]["rank"], resultListDict[i]["score"],
+                ListViewItem lvi = new ListViewItem(new[] { resultListDict[i]["rank"], resultListDict[i]["passId"], resultListDict[i]["score"],
                     resultListDict[i]["title"], resultListDict[i]["url"], resultListDict[i]["text"] });
                 resultListView.Items.Add(lvi);
             }
@@ -222,6 +230,23 @@ namespace testConvertOrPresentJson
         private void queryOptComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             queryIsPhrase = !queryIsPhrase;
+        }
+
+        private void saveResultBtn_Click(object sender, EventArgs e)
+        {
+            saveResultPath = null;
+            saveResultDialog.Filter = "Text File | *.txt";
+            if (saveResultDialog.ShowDialog() == DialogResult.OK)
+            {
+                saveResultPath = saveResultDialog.FileName;
+                FileStream fs = new FileStream(saveResultPath, FileMode.Create, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fs);
+                //StreamWriter writer = new StreamWriter(saveResultPath, append: true);
+                Program.SaveResultBtn_Click(sw, resultListDict.Count, resultListDict);
+
+                Program.Dos2Unix(saveResultPath);
+                //ConvertBtn.Enabled = true;
+            }
         }
     }
 }

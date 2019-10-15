@@ -25,9 +25,10 @@ namespace testConvertOrPresentJson
         Similarity mySimilarity;
 
         const Lucene.Net.Util.Version VERSION = Lucene.Net.Util.Version.LUCENE_30;
-        const string TEXT_FN = "Text";
+        //const string TEXT_FN = "Text";
         const string PASSAGES = "passages";
         const string TEXT_FN_PASS_TEXT = "passage_text";
+        const string TEXT_FN_PASS_ID = "passage_ID";
         const string TEXT_FN_URL = "url";
 
         public LuceneIndexSearch(){
@@ -36,7 +37,7 @@ namespace testConvertOrPresentJson
             // SnowballAnalyzer's second var "name" is the language of stemmer
             analyzer = new Lucene.Net.Analysis.SimpleAnalyzer();
             //analyzer = new Lucene.Net.Analysis.Snowball.SnowballAnalyzer(Lucene.Net.Util.Version.LUCENE_30, "English");
-            parser = new QueryParser(Lucene.Net.Util.Version.LUCENE_30, TEXT_FN, analyzer);
+            parser = new QueryParser(Lucene.Net.Util.Version.LUCENE_30, TEXT_FN_PASS_TEXT, analyzer);
             //mySimilarity = new NewSimilarity();
         }
 
@@ -70,11 +71,15 @@ namespace testConvertOrPresentJson
                 {
                     string text = p[TEXT_FN_PASS_TEXT].ToString();
                     string url = p[TEXT_FN_URL].ToString();
-                    Lucene.Net.Documents.Field field1 = new Field(TEXT_FN, text, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
+                    string id = p[TEXT_FN_PASS_ID].ToString();
+                    Lucene.Net.Documents.Field field1 = new Field(TEXT_FN_PASS_TEXT, text, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
                     Lucene.Net.Documents.Field field2 = new Field(TEXT_FN_URL, url, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
+                    Lucene.Net.Documents.Field field3 = new Field(TEXT_FN_PASS_ID, id, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
+
                     Lucene.Net.Documents.Document doc = new Document();
                     doc.Add(field1);
                     doc.Add(field2);
+                    doc.Add(field3);
 
                     writer.AddDocument(doc);
                 }
@@ -108,7 +113,7 @@ namespace testConvertOrPresentJson
         /// </summary>
         public void CreateParser()
         {
-            parser = new QueryParser(Lucene.Net.Util.Version.LUCENE_30, TEXT_FN, analyzer);
+            parser = new QueryParser(Lucene.Net.Util.Version.LUCENE_30, TEXT_FN_PASS_TEXT, analyzer);
         }
 
         /// <summary>
@@ -131,7 +136,7 @@ namespace testConvertOrPresentJson
             System.Console.WriteLine("Searching for " + querytext);
             querytext = querytext.ToLower();
             Query query = parser.Parse(querytext);
-
+            Console.WriteLine("query is " + query);
             TopDocs results = searcher.Search(query, 100);
             System.Console.WriteLine("Number of results is " + results.TotalHits);
             int rank = 0;
@@ -143,8 +148,9 @@ namespace testConvertOrPresentJson
                 {
                     rank++;
                     Lucene.Net.Documents.Document doc = searcher.Doc(scoreDoc.Doc);
-                    string myFieldValue = doc.Get(TEXT_FN);
+                    string myFieldValue = doc.Get(TEXT_FN_PASS_TEXT);
                     string myURL = doc.Get(TEXT_FN_URL);
+                    string myId = doc.Get(TEXT_FN_PASS_ID);
                     string score = scoreDoc.Score.ToString();
 
                     Explanation e = searcher.Explain(query, scoreDoc.Doc);
@@ -152,8 +158,8 @@ namespace testConvertOrPresentJson
                     char delimiters = '/';
                     string[] urlSeg = myURL.Split(delimiters);
 
-                    resultListDict.Add(new Dictionary<string, string> { { "rank", rank.ToString() }, {"score", score },
-                        { "title", urlSeg[2] }, { "url", myURL }, { "text", myFieldValue }, });
+                    resultListDict.Add(new Dictionary<string, string> { { "rank", rank.ToString() }, {"passId", myId },
+                        { "score", score },{ "title", urlSeg[2] }, { "url", myURL }, { "text", myFieldValue }, });
 
                     //Console.WriteLine("Rank " + rank + " text " + myFieldValue + " URL " + myURL);
                     //Console.WriteLine(e);

@@ -54,6 +54,9 @@
             this.nextBtn = new System.Windows.Forms.Button();
             this.pageLabel = new System.Windows.Forms.Label();
             this.queryOptComboBox = new System.Windows.Forms.ComboBox();
+            this.saveResultBtn = new System.Windows.Forms.Button();
+            this.saveResultDialog = new System.Windows.Forms.SaveFileDialog();
+            this.resultPassId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -180,6 +183,7 @@
             // 
             this.resultListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.resultRank,
+            this.resultPassId,
             this.resultScore,
             this.resultTitle,
             this.resultURL,
@@ -266,11 +270,29 @@
             this.queryOptComboBox.Text = "Default";
             this.queryOptComboBox.SelectedIndexChanged += new System.EventHandler(this.queryOptComboBox_SelectedIndexChanged);
             // 
+            // saveResultBtn
+            // 
+            this.saveResultBtn.Enabled = false;
+            this.saveResultBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveResultBtn.Location = new System.Drawing.Point(871, 426);
+            this.saveResultBtn.Name = "saveResultBtn";
+            this.saveResultBtn.Size = new System.Drawing.Size(110, 92);
+            this.saveResultBtn.TabIndex = 19;
+            this.saveResultBtn.Text = "Save Results for trec_eval";
+            this.saveResultBtn.UseVisualStyleBackColor = true;
+            this.saveResultBtn.Click += new System.EventHandler(this.saveResultBtn_Click);
+            // 
+            // resultPassId
+            // 
+            this.resultPassId.Text = "Passage Id";
+            this.resultPassId.Width = 82;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 712);
+            this.ClientSize = new System.Drawing.Size(999, 712);
+            this.Controls.Add(this.saveResultBtn);
             this.Controls.Add(this.queryOptComboBox);
             this.Controls.Add(this.pageLabel);
             this.Controls.Add(this.nextBtn);
@@ -324,6 +346,9 @@
         private System.Windows.Forms.Button nextBtn;
         private System.Windows.Forms.Label pageLabel;
         private System.Windows.Forms.ComboBox queryOptComboBox;
+        private System.Windows.Forms.Button saveResultBtn;
+        private System.Windows.Forms.SaveFileDialog saveResultDialog;
+        private System.Windows.Forms.ColumnHeader resultPassId;
     }
 }
 
