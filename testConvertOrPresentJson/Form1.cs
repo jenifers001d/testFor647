@@ -239,7 +239,8 @@ namespace testConvertOrPresentJson
             if (saveResultDialog.ShowDialog() == DialogResult.OK)
             {
                 saveResultPath = saveResultDialog.FileName;
-                FileStream fs = new FileStream(saveResultPath, FileMode.Create, FileAccess.Write);
+                // New results should be appended to the end of an existing results file.
+                FileStream fs = new FileStream(saveResultPath, FileMode.Append, FileAccess.Write);
                 StreamWriter sw = new StreamWriter(fs);
                 //StreamWriter writer = new StreamWriter(saveResultPath, append: true);
                 Program.SaveResultBtn_Click(sw, resultListDict.Count, resultListDict);
