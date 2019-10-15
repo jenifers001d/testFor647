@@ -45,11 +45,15 @@
             this.IndexBrowseSearchBtn = new System.Windows.Forms.Button();
             this.indexBrowserSearchDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.resultListView = new System.Windows.Forms.ListView();
-            this.resultText = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.resultURL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.resultTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultRank = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultScore = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.resultTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.resultURL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.resultText = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.prevBtn = new System.Windows.Forms.Button();
+            this.nextBtn = new System.Windows.Forms.Button();
+            this.pageLabel = new System.Windows.Forms.Label();
+            this.queryOptComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -191,21 +195,7 @@
             this.resultListView.UseCompatibleStateImageBehavior = false;
             this.resultListView.View = System.Windows.Forms.View.Details;
             this.resultListView.SelectedIndexChanged += new System.EventHandler(this.resultListView_SelectedIndexChanged);
-            // 
-            // resultText
-            // 
-            this.resultText.Text = "Text";
-            this.resultText.Width = 420;
-            // 
-            // resultURL
-            // 
-            this.resultURL.Text = "URL";
-            this.resultURL.Width = 170;
-            // 
-            // resultTitle
-            // 
-            this.resultTitle.Text = "Title";
-            this.resultTitle.Width = 170;
+            this.resultListView.DoubleClick += new System.EventHandler(this.resultListView_DoubleClick);
             // 
             // resultRank
             // 
@@ -217,11 +207,74 @@
             this.resultScore.Text = "Score";
             this.resultScore.Width = 75;
             // 
+            // resultTitle
+            // 
+            this.resultTitle.Text = "Title";
+            this.resultTitle.Width = 170;
+            // 
+            // resultURL
+            // 
+            this.resultURL.Text = "URL";
+            this.resultURL.Width = 170;
+            // 
+            // resultText
+            // 
+            this.resultText.Text = "Text";
+            this.resultText.Width = 420;
+            // 
+            // prevBtn
+            // 
+            this.prevBtn.Enabled = false;
+            this.prevBtn.Location = new System.Drawing.Point(280, 639);
+            this.prevBtn.Name = "prevBtn";
+            this.prevBtn.Size = new System.Drawing.Size(110, 32);
+            this.prevBtn.TabIndex = 15;
+            this.prevBtn.Text = "Previous 10 hits";
+            this.prevBtn.UseVisualStyleBackColor = true;
+            this.prevBtn.Click += new System.EventHandler(this.prevBtn_Click);
+            // 
+            // nextBtn
+            // 
+            this.nextBtn.Enabled = false;
+            this.nextBtn.Location = new System.Drawing.Point(426, 639);
+            this.nextBtn.Name = "nextBtn";
+            this.nextBtn.Size = new System.Drawing.Size(110, 32);
+            this.nextBtn.TabIndex = 16;
+            this.nextBtn.Text = "Next 10 hits";
+            this.nextBtn.UseVisualStyleBackColor = true;
+            this.nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
+            // 
+            // pageLabel
+            // 
+            this.pageLabel.AutoSize = true;
+            this.pageLabel.Location = new System.Drawing.Point(677, 649);
+            this.pageLabel.Name = "pageLabel";
+            this.pageLabel.Size = new System.Drawing.Size(0, 13);
+            this.pageLabel.TabIndex = 17;
+            // 
+            // queryOptComboBox
+            // 
+            this.queryOptComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.queryOptComboBox.FormattingEnabled = true;
+            this.queryOptComboBox.Items.AddRange(new object[] {
+            "Default",
+            "Queries as a Phrase"});
+            this.queryOptComboBox.Location = new System.Drawing.Point(341, 235);
+            this.queryOptComboBox.Name = "queryOptComboBox";
+            this.queryOptComboBox.Size = new System.Drawing.Size(143, 23);
+            this.queryOptComboBox.TabIndex = 18;
+            this.queryOptComboBox.Text = "Default";
+            this.queryOptComboBox.SelectedIndexChanged += new System.EventHandler(this.queryOptComboBox_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 660);
+            this.ClientSize = new System.Drawing.Size(974, 712);
+            this.Controls.Add(this.queryOptComboBox);
+            this.Controls.Add(this.pageLabel);
+            this.Controls.Add(this.nextBtn);
+            this.Controls.Add(this.prevBtn);
             this.Controls.Add(this.resultListView);
             this.Controls.Add(this.IndexBrowseSearchBtn);
             this.Controls.Add(this.IndexDirSearch);
@@ -267,6 +320,10 @@
         private System.Windows.Forms.ColumnHeader resultTitle;
         private System.Windows.Forms.ColumnHeader resultRank;
         private System.Windows.Forms.ColumnHeader resultScore;
+        private System.Windows.Forms.Button prevBtn;
+        private System.Windows.Forms.Button nextBtn;
+        private System.Windows.Forms.Label pageLabel;
+        private System.Windows.Forms.ComboBox queryOptComboBox;
     }
 }
 

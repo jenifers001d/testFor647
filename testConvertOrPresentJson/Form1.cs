@@ -21,7 +21,9 @@ namespace testConvertOrPresentJson
 
         List<Dictionary<string, string>> resultListDict; // Create global result list in type of list of dictionaries
         int limit;              // Create document starting index variable
-
+        int currentPage;
+        int totalPage;
+        bool queryIsPhrase = false;
 
         public Form1()
         {
@@ -65,12 +67,27 @@ namespace testConvertOrPresentJson
         {
             if (TextBoxQueryInput != null)
             {
-                limit = 0;
+                string queries;
+                if (!queryIsPhrase){ // If queries is regarded as tokens
+                    queries = TextBoxQueryInput.Text;
+                }
+                else{ // If queries is regarded as a phrase
+                    queries = "\"" + TextBoxQueryInput.Text + "\"";
+                }
 
                 //resultTextBox.Text = Program.SearchIndex_Click(TextBoxQueryInput.Text, IndexDirSearch.Text);
 
-                //[Sam] Put the result into ListView
-                resultListDict = Program.SearchIndex_Click(TextBoxQueryInput.Text, IndexDirSearch.Text);
+                //[Sam] Put the result into ListView               
+                resultListDict = Program.SearchIndex_Click(queries, IndexDirSearch.Text);
+                limit = 0;
+                currentPage = 1;
+                totalPage = Convert.ToInt32(Math.Ceiling((double)resultListDict.Count / 10));
+                Console.WriteLine(resultListDict.Count);
+                Console.WriteLine(totalPage);
+                pageLabel.Text = "Page " + currentPage + " of " + totalPage;
+                if (totalPage > 1) { // If page is more than 1, enable next button
+                    nextBtn.Enabled = true;
+                }
                 ViewData(limit, resultListDict);
             }
         }
@@ -91,7 +108,32 @@ namespace testConvertOrPresentJson
 
         private void resultListView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*
+            if (resultListView.Items.Count != 0)
+            {
+                Console.WriteLine(resultListView.SelectedItems);
+                Console.WriteLine(resultListView.SelectedItems.Count);
+                if (resultListView.SelectedItems.Count > 0)
+                {
+                    Console.WriteLine("hihi 1");
 
+                    Console.WriteLine(resultListView.SelectedItems[0]);
+                    Console.WriteLine("hihi 2");
+                    Console.WriteLine(resultListView.SelectedItems[0].Checked);
+                    Console.WriteLine(resultListView.SelectedItems[0].Index);
+                    Console.WriteLine(resultListView.SelectedItems[0].ListView);
+                    Console.WriteLine(resultListView.SelectedItems[0].Selected);
+                    Console.WriteLine(resultListView.SelectedItems[0].Text);
+
+
+
+                    int rank = Int32.Parse(resultListView.SelectedItems[0].Text);
+                    //var popform = new Form();
+                    //popform.ShowDialog();
+                    MessageBox.Show(resultListDict[rank - 1]["text"], "Entire Passage");
+                }
+            }
+            */
         }
 
         //[Sam] Present the result of the first ten rank on ListView 
@@ -115,6 +157,71 @@ namespace testConvertOrPresentJson
                     resultListDict[i]["title"], resultListDict[i]["url"], resultListDict[i]["text"] });
                 resultListView.Items.Add(lvi);
             }
+        }
+
+        private void resultListView_DoubleClick(object sender, EventArgs e)
+        {
+            if (resultListView.Items.Count != 0)
+            {
+                Console.WriteLine(resultListView.SelectedItems);
+                Console.WriteLine(resultListView.SelectedItems.Count);
+                if (resultListView.SelectedItems.Count > 0)
+                {
+                    Console.WriteLine("hihi 1");
+
+                    Console.WriteLine(resultListView.SelectedItems[0]);
+                    Console.WriteLine("hihi 2");
+                    Console.WriteLine(resultListView.SelectedItems[0].Checked);
+                    Console.WriteLine(resultListView.SelectedItems[0].Index);
+                    Console.WriteLine(resultListView.SelectedItems[0].ListView);
+                    Console.WriteLine(resultListView.SelectedItems[0].Selected);
+                    Console.WriteLine(resultListView.SelectedItems[0].Text);
+
+
+
+                    int rank = Int32.Parse(resultListView.SelectedItems[0].Text);
+                    //var popform = new Form();
+                    //popform.ShowDialog();
+                    MessageBox.Show(resultListDict[rank - 1]["text"], "Entire Passage");
+                }
+            }
+        }
+
+        private void prevBtn_Click(object sender, EventArgs e)
+        {
+            if (!nextBtn.Enabled) // If next button is unable, enable next button
+            {
+                nextBtn.Enabled = true;
+            }
+
+            limit = --currentPage * 10 - 10;
+            pageLabel.Text = "Page " + currentPage + " of " + totalPage;
+            ViewData(limit, resultListDict);
+            if (currentPage == 1)  // If there is no previous results, disable previous button
+            {
+                prevBtn.Enabled = false;
+            }
+        }
+
+        private void nextBtn_Click(object sender, EventArgs e)
+        {
+            if (!prevBtn.Enabled) // If previous button is unable, enable previous button
+            { 
+                prevBtn.Enabled = true;
+            }
+
+            limit = currentPage++ * 10;
+            pageLabel.Text = "Page " + currentPage + " of " + totalPage;
+            ViewData(limit, resultListDict);
+            if ( resultListDict.Count -limit <= 10)  // If there is no next 10 results, disable next button
+            {
+                nextBtn.Enabled = false;    
+            }
+        }
+
+        private void queryOptComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            queryIsPhrase = !queryIsPhrase;
         }
     }
 }
