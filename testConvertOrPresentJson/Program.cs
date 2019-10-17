@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Newtonsoft.Json.Linq; // for save qrel file for trac_eval
 
 namespace testConvertOrPresentJson
 {
@@ -42,12 +43,45 @@ namespace testConvertOrPresentJson
             // first column haven't decided what it is and what we can display
             for (int i = 0; i < resultListDict.Count; i++)
             {
-                sw.WriteLine("00" + resultCount.ToString() + "\tQ0" + "\t" + resultListDict[i]["passId"] +
+                Console.WriteLine(resultListDict[i]["queryId"]);
+                sw.WriteLine(resultListDict[i]["queryId"] + "\tQ0" + "\t" + resultListDict[i]["passId"] +
                     "   \t" + (i + 1) + "\t" + resultListDict[i]["score"] + "    \tn10104844_n10347054_n10501266_team");
             }
 
             sw.Dispose();
             sw.Close();
+        }
+
+        public static void CreateQrelFile(string resourcePath, string qrelPath)  // for save qrel file for trac_eval
+        { 
+
+            FileStream fs1 = new FileStream(resourcePath + "/collection.json", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs1);
+            JArray jArr = JArray.Parse(sr.ReadToEnd());
+
+            FileStream fs2 = new FileStream(qrelPath, FileMode.Append, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs2);
+
+            string queryId;
+            foreach (var item in jArr)
+            {
+                JToken passages = item["passages"];
+                queryId = item["query_id"].ToString();
+                foreach (var p in passages)
+                {
+                    int isSelected = Int32.Parse(p["is_selected"].ToString());
+                    if (isSelected == 1) {
+                        string id = p["passage_ID"].ToString();
+                        sw.WriteLine(queryId + " 0 " + id + " " + isSelected);
+                    }
+                    
+                }
+            }
+
+            sw.Dispose();
+            sr.Dispose();
+            sw.Close();
+            sr.Close();
         }
 
         public static void Dos2Unix(string fileName)

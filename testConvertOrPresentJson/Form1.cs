@@ -236,6 +236,7 @@ namespace testConvertOrPresentJson
         {
             saveResultPath = null;
             saveResultDialog.Filter = "Text File | *.txt";
+            //string resourcePathForQrel = @"H:\jsonDir";           // for save qrel file for trac_eval
             if (saveResultDialog.ShowDialog() == DialogResult.OK)
             {
                 saveResultPath = saveResultDialog.FileName;
@@ -244,8 +245,18 @@ namespace testConvertOrPresentJson
                 StreamWriter sw = new StreamWriter(fs);
                 //StreamWriter writer = new StreamWriter(saveResultPath, append: true);
                 Program.SaveResultBtn_Click(sw, resultListDict.Count, resultListDict);
-
                 Program.Dos2Unix(saveResultPath);
+
+
+                // for save qrel file for trac_eval
+                /*
+                string PATH = @"C:\Users\n10347054\Desktop\qrel.txt";
+                Program.CreateQrelFile(resourcePathForQrel, PATH);
+                Program.Dos2Unix(PATH);
+                */
+                // for save qrel file for trac_eval
+
+
                 //ConvertBtn.Enabled = true;
             }
         }

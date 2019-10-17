@@ -29,6 +29,7 @@ namespace testConvertOrPresentJson
         const string PASSAGES = "passages";
         const string TEXT_FN_PASS_TEXT = "passage_text";
         const string TEXT_FN_PASS_ID = "passage_ID";
+        const string TEXT_FN_QUERY_ID = "query_id";
         const string TEXT_FN_URL = "url";
 
         public LuceneIndexSearch(){
@@ -66,8 +67,9 @@ namespace testConvertOrPresentJson
             JArray jArr = JArray.Parse(sr.ReadToEnd());
             foreach(var item in jArr)
             {
-                JToken o = item[PASSAGES];
-                foreach (var p in o)
+                JToken passages = item[PASSAGES];
+                string queryId = item[TEXT_FN_QUERY_ID].ToString();
+                foreach (var p in passages)
                 {
                     string text = p[TEXT_FN_PASS_TEXT].ToString();
                     string url = p[TEXT_FN_URL].ToString();
@@ -75,11 +77,13 @@ namespace testConvertOrPresentJson
                     Lucene.Net.Documents.Field field1 = new Field(TEXT_FN_PASS_TEXT, text, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
                     Lucene.Net.Documents.Field field2 = new Field(TEXT_FN_URL, url, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
                     Lucene.Net.Documents.Field field3 = new Field(TEXT_FN_PASS_ID, id, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
+                    Lucene.Net.Documents.Field field4 = new Field(TEXT_FN_QUERY_ID, queryId, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
 
                     Lucene.Net.Documents.Document doc = new Document();
                     doc.Add(field1);
                     doc.Add(field2);
                     doc.Add(field3);
+                    doc.Add(field4);
 
                     writer.AddDocument(doc);
                 }
@@ -150,16 +154,17 @@ namespace testConvertOrPresentJson
                     Lucene.Net.Documents.Document doc = searcher.Doc(scoreDoc.Doc);
                     string myFieldValue = doc.Get(TEXT_FN_PASS_TEXT);
                     string myURL = doc.Get(TEXT_FN_URL);
-                    string myId = doc.Get(TEXT_FN_PASS_ID);
+                    string passId = doc.Get(TEXT_FN_PASS_ID);
                     string score = scoreDoc.Score.ToString();
+                    string queryId = doc.Get(TEXT_FN_QUERY_ID);
 
                     Explanation e = searcher.Explain(query, scoreDoc.Doc);
 
                     char delimiters = '/';
                     string[] urlSeg = myURL.Split(delimiters);
 
-                    resultListDict.Add(new Dictionary<string, string> { { "rank", rank.ToString() }, {"passId", myId },
-                        { "score", score },{ "title", urlSeg[2] }, { "url", myURL }, { "text", myFieldValue }, });
+                    resultListDict.Add(new Dictionary<string, string> { { "rank", rank.ToString() }, {"passId", passId },
+                        { "score", score },{ "title", urlSeg[2] }, { "url", myURL }, { "text", myFieldValue }, { "queryId", queryId } });
 
                     //Console.WriteLine("Rank " + rank + " text " + myFieldValue + " URL " + myURL);
                     //Console.WriteLine(e);
