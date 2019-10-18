@@ -29,6 +29,7 @@ namespace testConvertOrPresentJson
         public Form1()
         {
             InitializeComponent();
+            queryDisplayBox.Text = "Display final queries:\r\n";
         }
 
         private void resourceBrowerBtn_Click(object sender, EventArgs e)
@@ -66,13 +67,14 @@ namespace testConvertOrPresentJson
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            queryDisplayBox.Text = "Display final queries:\r\n";
             if (TextBoxQueryInput != null)
             {
                 string queries;
                 if (!queryIsPhrase){ // If queries is regarded as tokens
                     queries = TextBoxQueryInput.Text;
                 }
-                else{ // If queries is regarded as a phrase
+                else{ // If queries is regarded as a phrase (As Is)
                     queries = "\"" + TextBoxQueryInput.Text + "\"";
                 }
 
@@ -80,6 +82,10 @@ namespace testConvertOrPresentJson
 
                 //[Sam] Put the result into ListView               
                 resultListDict = Program.SearchIndex_Click(queries, IndexDirSearch.Text);
+
+                string q = Program.DisplayProcessedQueries(queries);
+                queryDisplayBox.Text += q;
+
                 limit = 0;               
                 totalPage = Convert.ToInt32(Math.Ceiling((double)resultListDict.Count / 10));
                 if (totalPage == 0)
@@ -235,7 +241,8 @@ namespace testConvertOrPresentJson
         private void saveResultBtn_Click(object sender, EventArgs e)
         {
             saveResultPath = null;
-            saveResultDialog.Filter = "Text File | *.txt";
+            saveResultDialog.FileName = "";
+            saveResultDialog.Filter = "Text File | *.txt";           
             //string resourcePathForQrel = @"H:\jsonDir";           // for save qrel file for trac_eval
             if (saveResultDialog.ShowDialog() == DialogResult.OK)
             {

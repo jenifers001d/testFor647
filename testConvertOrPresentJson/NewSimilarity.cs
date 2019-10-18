@@ -18,7 +18,7 @@ namespace testConvertOrPresentJson
              * 2. Add 1 is for the situation as TF is 1(log(1)=0), after we added 1 in this algorithm that it can help to discriminate TF=0 and TF=1 
              */
             return (float)(Math.Log(freq) + 1);
-            //return (float) System.Math.Sqrt(freq);
+            //return (float) System.Math.Sqrt(freq); // Default similarity
         }
 
         /// <summary>Implemented as <c>log(numDocs/(docFreq+1)) + 1</c>. </summary>

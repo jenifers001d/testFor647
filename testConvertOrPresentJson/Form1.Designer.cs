@@ -46,6 +46,7 @@
             this.indexBrowserSearchDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.resultListView = new System.Windows.Forms.ListView();
             this.resultRank = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.resultPassId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultScore = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultURL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -56,14 +57,17 @@
             this.queryOptComboBox = new System.Windows.Forms.ComboBox();
             this.saveResultBtn = new System.Windows.Forms.Button();
             this.saveResultDialog = new System.Windows.Forms.SaveFileDialog();
-            this.resultPassId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.queryDisplayBox = new System.Windows.Forms.TextBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 23);
+            this.label1.Location = new System.Drawing.Point(42, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 16);
             this.label1.TabIndex = 0;
@@ -71,14 +75,15 @@
             // 
             // resourceDir
             // 
-            this.resourceDir.Location = new System.Drawing.Point(31, 51);
+            this.resourceDir.Location = new System.Drawing.Point(44, 56);
             this.resourceDir.Name = "resourceDir";
-            this.resourceDir.Size = new System.Drawing.Size(278, 20);
+            this.resourceDir.Size = new System.Drawing.Size(278, 24);
             this.resourceDir.TabIndex = 1;
             // 
             // resourceBrowerBtn
             // 
-            this.resourceBrowerBtn.Location = new System.Drawing.Point(353, 50);
+            this.resourceBrowerBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resourceBrowerBtn.Location = new System.Drawing.Point(344, 53);
             this.resourceBrowerBtn.Name = "resourceBrowerBtn";
             this.resourceBrowerBtn.Size = new System.Drawing.Size(75, 23);
             this.resourceBrowerBtn.TabIndex = 2;
@@ -90,7 +95,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(28, 95);
+            this.label2.Location = new System.Drawing.Point(488, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 16);
             this.label2.TabIndex = 3;
@@ -98,14 +103,15 @@
             // 
             // indexDir
             // 
-            this.indexDir.Location = new System.Drawing.Point(31, 125);
+            this.indexDir.Location = new System.Drawing.Point(491, 56);
             this.indexDir.Name = "indexDir";
-            this.indexDir.Size = new System.Drawing.Size(278, 20);
+            this.indexDir.Size = new System.Drawing.Size(278, 24);
             this.indexDir.TabIndex = 4;
             // 
             // indexBrowerBtn
             // 
-            this.indexBrowerBtn.Location = new System.Drawing.Point(353, 121);
+            this.indexBrowerBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.indexBrowerBtn.Location = new System.Drawing.Point(790, 53);
             this.indexBrowerBtn.Name = "indexBrowerBtn";
             this.indexBrowerBtn.Size = new System.Drawing.Size(75, 23);
             this.indexBrowerBtn.TabIndex = 5;
@@ -115,9 +121,10 @@
             // 
             // buildIndexBtn
             // 
-            this.buildIndexBtn.Location = new System.Drawing.Point(193, 171);
+            this.buildIndexBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buildIndexBtn.Location = new System.Drawing.Point(344, 101);
             this.buildIndexBtn.Name = "buildIndexBtn";
-            this.buildIndexBtn.Size = new System.Drawing.Size(75, 23);
+            this.buildIndexBtn.Size = new System.Drawing.Size(238, 29);
             this.buildIndexBtn.TabIndex = 7;
             this.buildIndexBtn.Text = "Index";
             this.buildIndexBtn.UseVisualStyleBackColor = true;
@@ -143,9 +150,10 @@
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(426, 295);
+            this.SearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchButton.Location = new System.Drawing.Point(340, 245);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(75, 23);
+            this.SearchButton.Size = new System.Drawing.Size(104, 52);
             this.SearchButton.TabIndex = 10;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
@@ -155,7 +163,7 @@
             // 
             this.LabelIndexForSearch.AutoSize = true;
             this.LabelIndexForSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelIndexForSearch.Location = new System.Drawing.Point(28, 273);
+            this.LabelIndexForSearch.Location = new System.Drawing.Point(611, 177);
             this.LabelIndexForSearch.Name = "LabelIndexForSearch";
             this.LabelIndexForSearch.Size = new System.Drawing.Size(165, 16);
             this.LabelIndexForSearch.TabIndex = 11;
@@ -163,7 +171,7 @@
             // 
             // IndexDirSearch
             // 
-            this.IndexDirSearch.Location = new System.Drawing.Point(31, 295);
+            this.IndexDirSearch.Location = new System.Drawing.Point(614, 199);
             this.IndexDirSearch.Name = "IndexDirSearch";
             this.IndexDirSearch.Size = new System.Drawing.Size(278, 20);
             this.IndexDirSearch.TabIndex = 12;
@@ -171,7 +179,7 @@
             // 
             // IndexBrowseSearchBtn
             // 
-            this.IndexBrowseSearchBtn.Location = new System.Drawing.Point(324, 295);
+            this.IndexBrowseSearchBtn.Location = new System.Drawing.Point(907, 199);
             this.IndexBrowseSearchBtn.Name = "IndexBrowseSearchBtn";
             this.IndexBrowseSearchBtn.Size = new System.Drawing.Size(75, 23);
             this.IndexBrowseSearchBtn.TabIndex = 13;
@@ -205,6 +213,11 @@
             // 
             this.resultRank.Text = "Rank";
             this.resultRank.Width = 50;
+            // 
+            // resultPassId
+            // 
+            this.resultPassId.Text = "Passage Id";
+            this.resultPassId.Width = 82;
             // 
             // resultScore
             // 
@@ -262,10 +275,10 @@
             this.queryOptComboBox.FormattingEnabled = true;
             this.queryOptComboBox.Items.AddRange(new object[] {
             "Default",
-            "Queries as a Phrase"});
-            this.queryOptComboBox.Location = new System.Drawing.Point(341, 235);
+            "As Is"});
+            this.queryOptComboBox.Location = new System.Drawing.Point(31, 283);
             this.queryOptComboBox.Name = "queryOptComboBox";
-            this.queryOptComboBox.Size = new System.Drawing.Size(143, 23);
+            this.queryOptComboBox.Size = new System.Drawing.Size(75, 23);
             this.queryOptComboBox.TabIndex = 18;
             this.queryOptComboBox.Text = "Default";
             this.queryOptComboBox.SelectedIndexChanged += new System.EventHandler(this.queryOptComboBox_SelectedIndexChanged);
@@ -282,16 +295,52 @@
             this.saveResultBtn.UseVisualStyleBackColor = true;
             this.saveResultBtn.Click += new System.EventHandler(this.saveResultBtn_Click);
             // 
-            // resultPassId
+            // groupBox1
             // 
-            this.resultPassId.Text = "Passage Id";
-            this.resultPassId.Width = 82;
+            this.groupBox1.Controls.Add(this.buildIndexBtn);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.resourceDir);
+            this.groupBox1.Controls.Add(this.resourceBrowerBtn);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.indexDir);
+            this.groupBox1.Controls.Add(this.indexBrowerBtn);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(53, 26);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(893, 148);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Index";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(28, 263);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 16);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Options";
+            // 
+            // queryDisplayBox
+            // 
+            this.queryDisplayBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.queryDisplayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.queryDisplayBox.Location = new System.Drawing.Point(517, 236);
+            this.queryDisplayBox.Multiline = true;
+            this.queryDisplayBox.Name = "queryDisplayBox";
+            this.queryDisplayBox.ReadOnly = true;
+            this.queryDisplayBox.Size = new System.Drawing.Size(408, 70);
+            this.queryDisplayBox.TabIndex = 22;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 712);
+            this.Controls.Add(this.queryDisplayBox);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.saveResultBtn);
             this.Controls.Add(this.queryOptComboBox);
             this.Controls.Add(this.pageLabel);
@@ -304,15 +353,10 @@
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.TextBoxQueryInput);
             this.Controls.Add(this.LabelQuery);
-            this.Controls.Add(this.buildIndexBtn);
-            this.Controls.Add(this.indexBrowerBtn);
-            this.Controls.Add(this.indexDir);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.resourceBrowerBtn);
-            this.Controls.Add(this.resourceDir);
-            this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Kingsland System";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,6 +393,9 @@
         private System.Windows.Forms.Button saveResultBtn;
         private System.Windows.Forms.SaveFileDialog saveResultDialog;
         private System.Windows.Forms.ColumnHeader resultPassId;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox queryDisplayBox;
     }
 }
 

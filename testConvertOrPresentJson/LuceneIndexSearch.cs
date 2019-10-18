@@ -128,6 +128,12 @@ namespace testConvertOrPresentJson
             searcher.Dispose();
         }
 
+        public Query DisplayQueries(string querytext) {
+            System.Console.WriteLine("Searching for " + querytext);
+            querytext = querytext.ToLower();
+            return parser.Parse(querytext);
+        }
+
         /// <summary>
         /// Searches the index for the querytext
         /// </summary>
@@ -137,9 +143,8 @@ namespace testConvertOrPresentJson
         {
             List<Dictionary<string, string>> resultListDict = new List<Dictionary<string, string>>();      // Initiate a result list
 
-            System.Console.WriteLine("Searching for " + querytext);
-            querytext = querytext.ToLower();
-            Query query = parser.Parse(querytext);
+            Query query = DisplayQueries(querytext);
+
             Console.WriteLine("query is " + query);
             TopDocs results = searcher.Search(query, 100);
             System.Console.WriteLine("Number of results is " + results.TotalHits);

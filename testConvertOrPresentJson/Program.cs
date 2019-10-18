@@ -34,9 +34,19 @@ namespace testConvertOrPresentJson
             mySearch.CreateSearcher(indexPath);
             mySearch.CreateParser();
             return mySearch.SearchIndext(queryText);
-
         }
 
+        public static string DisplayProcessedQueries(string queries) {
+            LuceneIndexSearch mySearch = new LuceneIndexSearch();
+            string q = mySearch.DisplayQueries(queries).ToString();
+            string[] delimiters = { "passage_text:", " passage_text:" };
+            string[] finalQueries = q.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+            string fQ = "";
+            foreach (string query in finalQueries) {
+                fQ += query + ", ";
+            }
+            return fQ;
+        }
 
         public static void SaveResultBtn_Click(StreamWriter sw, int resultCount, List<Dictionary<string, string>> resultListDict)
         {
@@ -44,8 +54,11 @@ namespace testConvertOrPresentJson
             for (int i = 0; i < resultListDict.Count; i++)
             {
                 Console.WriteLine(resultListDict[i]["queryId"]);
-                sw.WriteLine(resultListDict[i]["queryId"] + "\tQ0" + "\t" + resultListDict[i]["passId"] +
-                    "   \t" + (i + 1) + "\t" + resultListDict[i]["score"] + "    \tn10104844_n10347054_n10501266_team");
+                string t = String.Format("{0,-7} Q0   {1,-10} {2,-6} {3,-12:F10} n10104844_n10347054_n10501266_team", 
+                    resultListDict[i]["queryId"], resultListDict[i]["passId"], (i + 1), resultListDict[i]["score"]);
+                //sw.WriteLine(resultListDict[i]["queryId"] + "\tQ0" + "\t" + resultListDict[i]["passId"] +
+                //    "   \t" + (i + 1) + "\t" + resultListDict[i]["score"] + "    \tn10104844_n10347054_n10501266_team");
+                sw.WriteLine(t);
             }
 
             sw.Dispose();
