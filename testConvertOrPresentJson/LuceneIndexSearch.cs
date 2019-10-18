@@ -22,7 +22,7 @@ namespace testConvertOrPresentJson
         Lucene.Net.Index.IndexWriter writer;
         IndexSearcher searcher;
         QueryParser parser;
-        Similarity mySimilarity;
+        NewSimilarity mySimilarity;
 
         const Lucene.Net.Util.Version VERSION = Lucene.Net.Util.Version.LUCENE_30;
         //const string TEXT_FN = "Text";
@@ -39,7 +39,7 @@ namespace testConvertOrPresentJson
             analyzer = new Lucene.Net.Analysis.SimpleAnalyzer();
             //analyzer = new Lucene.Net.Analysis.Snowball.SnowballAnalyzer(Lucene.Net.Util.Version.LUCENE_30, "English");
             parser = new QueryParser(Lucene.Net.Util.Version.LUCENE_30, TEXT_FN_PASS_TEXT, analyzer);
-            //mySimilarity = new NewSimilarity();
+            mySimilarity = new NewSimilarity();
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace testConvertOrPresentJson
             luceneIndexDirectory = Lucene.Net.Store.FSDirectory.Open(indexPath + "/IndexStoredPosition");
             IndexWriter.MaxFieldLength mfl = new IndexWriter.MaxFieldLength(IndexWriter.DEFAULT_MAX_FIELD_LENGTH);
             writer = new Lucene.Net.Index.IndexWriter(luceneIndexDirectory, analyzer, true, mfl);
-            //writer.SetSimilarity(mySimilarity);
+            writer.SetSimilarity(mySimilarity);
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace testConvertOrPresentJson
         {
             luceneIndexDirectory = Lucene.Net.Store.FSDirectory.Open(indexPath + "/IndexStoredPosition");
             searcher = new IndexSearcher(luceneIndexDirectory);
-            //searcher.Similarity = mySimilarity;
+            searcher.Similarity = mySimilarity;
         }
 
         /// <summary>
