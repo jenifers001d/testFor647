@@ -1,6 +1,6 @@
 ﻿namespace testConvertOrPresentJson
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -189,6 +189,7 @@
             // 
             // resultListView
             // 
+            this.resultListView.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.resultListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.resultRank,
             this.resultPassId,
@@ -241,6 +242,7 @@
             // 
             // prevBtn
             // 
+            this.prevBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.prevBtn.Enabled = false;
             this.prevBtn.Location = new System.Drawing.Point(280, 639);
             this.prevBtn.Name = "prevBtn";
@@ -252,6 +254,7 @@
             // 
             // nextBtn
             // 
+            this.nextBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.nextBtn.Enabled = false;
             this.nextBtn.Location = new System.Drawing.Point(426, 639);
             this.nextBtn.Name = "nextBtn";
@@ -263,6 +266,7 @@
             // 
             // pageLabel
             // 
+            this.pageLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pageLabel.AutoSize = true;
             this.pageLabel.Location = new System.Drawing.Point(677, 649);
             this.pageLabel.Name = "pageLabel";
@@ -285,6 +289,7 @@
             // 
             // saveResultBtn
             // 
+            this.saveResultBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.saveResultBtn.Enabled = false;
             this.saveResultBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveResultBtn.Location = new System.Drawing.Point(871, 426);
@@ -297,6 +302,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox1.Controls.Add(this.buildIndexBtn);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.resourceDir);
@@ -325,6 +331,7 @@
             // queryDisplayBox
             // 
             this.queryDisplayBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.queryDisplayBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.queryDisplayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.queryDisplayBox.Location = new System.Drawing.Point(517, 236);
             this.queryDisplayBox.Multiline = true;
@@ -333,7 +340,7 @@
             this.queryDisplayBox.Size = new System.Drawing.Size(408, 70);
             this.queryDisplayBox.TabIndex = 22;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -353,7 +360,9 @@
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.TextBoxQueryInput);
             this.Controls.Add(this.LabelQuery);
-            this.Name = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "MainForm";
             this.Text = "Kingsland System";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

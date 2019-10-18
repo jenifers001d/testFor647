@@ -18,7 +18,7 @@ namespace testConvertOrPresentJson
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
         public static void BuildIndex_Click(string sourcePath, string indexPath) {
             LuceneIndexSearch mySearch = new LuceneIndexSearch();

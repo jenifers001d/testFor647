@@ -13,7 +13,7 @@ using Newtonsoft.Json.Linq;
 
 namespace testConvertOrPresentJson
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
 
         string resourcePath = null;
@@ -26,7 +26,7 @@ namespace testConvertOrPresentJson
         int totalPage;
         bool queryIsPhrase = false;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             queryDisplayBox.Text = "Display final queries:\r\n";
@@ -181,22 +181,10 @@ namespace testConvertOrPresentJson
                 Console.WriteLine(resultListView.SelectedItems.Count);
                 if (resultListView.SelectedItems.Count > 0)
                 {
-                    Console.WriteLine("hihi 1");
-
-                    Console.WriteLine(resultListView.SelectedItems[0]);
-                    Console.WriteLine("hihi 2");
-                    Console.WriteLine(resultListView.SelectedItems[0].Checked);
-                    Console.WriteLine(resultListView.SelectedItems[0].Index);
-                    Console.WriteLine(resultListView.SelectedItems[0].ListView);
-                    Console.WriteLine(resultListView.SelectedItems[0].Selected);
-                    Console.WriteLine(resultListView.SelectedItems[0].Text);
-
-
-
                     int rank = Int32.Parse(resultListView.SelectedItems[0].Text);
-                    //var popform = new Form();
-                    //popform.ShowDialog();
-                    MessageBox.Show(resultListDict[rank - 1]["text"], "Entire Passage");
+                    Form newForm = new EntirePassage( resultListDict[rank - 1]["text"] );
+                    newForm.ShowDialog();
+                    //MessageBox.Show(resultListDict[rank - 1]["text"], "Entire Passage");
                 }
             }
         }
