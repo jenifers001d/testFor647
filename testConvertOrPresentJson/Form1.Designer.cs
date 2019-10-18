@@ -60,6 +60,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.queryDisplayBox = new System.Windows.Forms.TextBox();
+            this.AmountL = new System.Windows.Forms.Label();
+            this.AmountN = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +69,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(42, 29);
+            this.label1.Location = new System.Drawing.Point(42, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 16);
             this.label1.TabIndex = 0;
@@ -75,7 +77,7 @@
             // 
             // resourceDir
             // 
-            this.resourceDir.Location = new System.Drawing.Point(44, 56);
+            this.resourceDir.Location = new System.Drawing.Point(44, 52);
             this.resourceDir.Name = "resourceDir";
             this.resourceDir.Size = new System.Drawing.Size(278, 24);
             this.resourceDir.TabIndex = 1;
@@ -83,9 +85,9 @@
             // resourceBrowerBtn
             // 
             this.resourceBrowerBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resourceBrowerBtn.Location = new System.Drawing.Point(344, 53);
+            this.resourceBrowerBtn.Location = new System.Drawing.Point(344, 49);
             this.resourceBrowerBtn.Name = "resourceBrowerBtn";
-            this.resourceBrowerBtn.Size = new System.Drawing.Size(75, 23);
+            this.resourceBrowerBtn.Size = new System.Drawing.Size(75, 21);
             this.resourceBrowerBtn.TabIndex = 2;
             this.resourceBrowerBtn.Text = "Brower";
             this.resourceBrowerBtn.UseVisualStyleBackColor = true;
@@ -95,7 +97,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(488, 29);
+            this.label2.Location = new System.Drawing.Point(488, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 16);
             this.label2.TabIndex = 3;
@@ -103,7 +105,7 @@
             // 
             // indexDir
             // 
-            this.indexDir.Location = new System.Drawing.Point(491, 56);
+            this.indexDir.Location = new System.Drawing.Point(491, 52);
             this.indexDir.Name = "indexDir";
             this.indexDir.Size = new System.Drawing.Size(278, 24);
             this.indexDir.TabIndex = 4;
@@ -111,9 +113,9 @@
             // indexBrowerBtn
             // 
             this.indexBrowerBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.indexBrowerBtn.Location = new System.Drawing.Point(790, 53);
+            this.indexBrowerBtn.Location = new System.Drawing.Point(790, 49);
             this.indexBrowerBtn.Name = "indexBrowerBtn";
-            this.indexBrowerBtn.Size = new System.Drawing.Size(75, 23);
+            this.indexBrowerBtn.Size = new System.Drawing.Size(75, 21);
             this.indexBrowerBtn.TabIndex = 5;
             this.indexBrowerBtn.Text = "Brower";
             this.indexBrowerBtn.UseVisualStyleBackColor = true;
@@ -122,9 +124,9 @@
             // buildIndexBtn
             // 
             this.buildIndexBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buildIndexBtn.Location = new System.Drawing.Point(344, 101);
+            this.buildIndexBtn.Location = new System.Drawing.Point(344, 93);
             this.buildIndexBtn.Name = "buildIndexBtn";
-            this.buildIndexBtn.Size = new System.Drawing.Size(238, 29);
+            this.buildIndexBtn.Size = new System.Drawing.Size(238, 27);
             this.buildIndexBtn.TabIndex = 7;
             this.buildIndexBtn.Text = "Index";
             this.buildIndexBtn.UseVisualStyleBackColor = true;
@@ -134,7 +136,7 @@
             // 
             this.LabelQuery.AutoSize = true;
             this.LabelQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelQuery.Location = new System.Drawing.Point(28, 216);
+            this.LabelQuery.Location = new System.Drawing.Point(28, 199);
             this.LabelQuery.Name = "LabelQuery";
             this.LabelQuery.Size = new System.Drawing.Size(78, 16);
             this.LabelQuery.TabIndex = 8;
@@ -142,18 +144,18 @@
             // 
             // TextBoxQueryInput
             // 
-            this.TextBoxQueryInput.Location = new System.Drawing.Point(31, 236);
+            this.TextBoxQueryInput.Location = new System.Drawing.Point(31, 218);
             this.TextBoxQueryInput.Name = "TextBoxQueryInput";
-            this.TextBoxQueryInput.Size = new System.Drawing.Size(278, 20);
+            this.TextBoxQueryInput.Size = new System.Drawing.Size(278, 22);
             this.TextBoxQueryInput.TabIndex = 9;
             this.TextBoxQueryInput.TextChanged += new System.EventHandler(this.TextBoxQueryInput_TextChanged);
             // 
             // SearchButton
             // 
             this.SearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchButton.Location = new System.Drawing.Point(340, 245);
+            this.SearchButton.Location = new System.Drawing.Point(340, 226);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(104, 52);
+            this.SearchButton.Size = new System.Drawing.Size(104, 48);
             this.SearchButton.TabIndex = 10;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
@@ -163,7 +165,7 @@
             // 
             this.LabelIndexForSearch.AutoSize = true;
             this.LabelIndexForSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelIndexForSearch.Location = new System.Drawing.Point(611, 177);
+            this.LabelIndexForSearch.Location = new System.Drawing.Point(611, 163);
             this.LabelIndexForSearch.Name = "LabelIndexForSearch";
             this.LabelIndexForSearch.Size = new System.Drawing.Size(165, 16);
             this.LabelIndexForSearch.TabIndex = 11;
@@ -171,17 +173,17 @@
             // 
             // IndexDirSearch
             // 
-            this.IndexDirSearch.Location = new System.Drawing.Point(614, 199);
+            this.IndexDirSearch.Location = new System.Drawing.Point(614, 184);
             this.IndexDirSearch.Name = "IndexDirSearch";
-            this.IndexDirSearch.Size = new System.Drawing.Size(278, 20);
+            this.IndexDirSearch.Size = new System.Drawing.Size(278, 22);
             this.IndexDirSearch.TabIndex = 12;
             this.IndexDirSearch.TextChanged += new System.EventHandler(this.IndexDirSearch_TextChanged);
             // 
             // IndexBrowseSearchBtn
             // 
-            this.IndexBrowseSearchBtn.Location = new System.Drawing.Point(907, 199);
+            this.IndexBrowseSearchBtn.Location = new System.Drawing.Point(907, 184);
             this.IndexBrowseSearchBtn.Name = "IndexBrowseSearchBtn";
-            this.IndexBrowseSearchBtn.Size = new System.Drawing.Size(75, 23);
+            this.IndexBrowseSearchBtn.Size = new System.Drawing.Size(75, 21);
             this.IndexBrowseSearchBtn.TabIndex = 13;
             this.IndexBrowseSearchBtn.Text = "Brower";
             this.IndexBrowseSearchBtn.UseVisualStyleBackColor = true;
@@ -200,10 +202,10 @@
             this.resultListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultListView.FullRowSelect = true;
             this.resultListView.GridLines = true;
-            this.resultListView.Location = new System.Drawing.Point(31, 343);
+            this.resultListView.Location = new System.Drawing.Point(31, 317);
             this.resultListView.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.resultListView.Name = "resultListView";
-            this.resultListView.Size = new System.Drawing.Size(821, 262);
+            this.resultListView.Size = new System.Drawing.Size(821, 242);
             this.resultListView.TabIndex = 14;
             this.resultListView.UseCompatibleStateImageBehavior = false;
             this.resultListView.View = System.Windows.Forms.View.Details;
@@ -244,9 +246,9 @@
             // 
             this.prevBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.prevBtn.Enabled = false;
-            this.prevBtn.Location = new System.Drawing.Point(280, 639);
+            this.prevBtn.Location = new System.Drawing.Point(280, 590);
             this.prevBtn.Name = "prevBtn";
-            this.prevBtn.Size = new System.Drawing.Size(110, 32);
+            this.prevBtn.Size = new System.Drawing.Size(110, 30);
             this.prevBtn.TabIndex = 15;
             this.prevBtn.Text = "Previous 10 hits";
             this.prevBtn.UseVisualStyleBackColor = true;
@@ -256,9 +258,9 @@
             // 
             this.nextBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.nextBtn.Enabled = false;
-            this.nextBtn.Location = new System.Drawing.Point(426, 639);
+            this.nextBtn.Location = new System.Drawing.Point(426, 590);
             this.nextBtn.Name = "nextBtn";
-            this.nextBtn.Size = new System.Drawing.Size(110, 32);
+            this.nextBtn.Size = new System.Drawing.Size(110, 30);
             this.nextBtn.TabIndex = 16;
             this.nextBtn.Text = "Next 10 hits";
             this.nextBtn.UseVisualStyleBackColor = true;
@@ -268,9 +270,9 @@
             // 
             this.pageLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pageLabel.AutoSize = true;
-            this.pageLabel.Location = new System.Drawing.Point(677, 649);
+            this.pageLabel.Location = new System.Drawing.Point(677, 599);
             this.pageLabel.Name = "pageLabel";
-            this.pageLabel.Size = new System.Drawing.Size(0, 13);
+            this.pageLabel.Size = new System.Drawing.Size(0, 12);
             this.pageLabel.TabIndex = 17;
             // 
             // queryOptComboBox
@@ -280,7 +282,7 @@
             this.queryOptComboBox.Items.AddRange(new object[] {
             "Default",
             "As Is"});
-            this.queryOptComboBox.Location = new System.Drawing.Point(31, 283);
+            this.queryOptComboBox.Location = new System.Drawing.Point(31, 261);
             this.queryOptComboBox.Name = "queryOptComboBox";
             this.queryOptComboBox.Size = new System.Drawing.Size(75, 23);
             this.queryOptComboBox.TabIndex = 18;
@@ -292,9 +294,9 @@
             this.saveResultBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.saveResultBtn.Enabled = false;
             this.saveResultBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveResultBtn.Location = new System.Drawing.Point(871, 426);
+            this.saveResultBtn.Location = new System.Drawing.Point(871, 393);
             this.saveResultBtn.Name = "saveResultBtn";
-            this.saveResultBtn.Size = new System.Drawing.Size(110, 92);
+            this.saveResultBtn.Size = new System.Drawing.Size(110, 85);
             this.saveResultBtn.TabIndex = 19;
             this.saveResultBtn.Text = "Save Results for trec_eval";
             this.saveResultBtn.UseVisualStyleBackColor = true;
@@ -311,9 +313,9 @@
             this.groupBox1.Controls.Add(this.indexDir);
             this.groupBox1.Controls.Add(this.indexBrowerBtn);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(53, 26);
+            this.groupBox1.Location = new System.Drawing.Point(53, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(893, 148);
+            this.groupBox1.Size = new System.Drawing.Size(893, 137);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Index";
@@ -322,7 +324,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 263);
+            this.label3.Location = new System.Drawing.Point(28, 243);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 16);
             this.label3.TabIndex = 21;
@@ -333,18 +335,36 @@
             this.queryDisplayBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.queryDisplayBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.queryDisplayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.queryDisplayBox.Location = new System.Drawing.Point(517, 236);
+            this.queryDisplayBox.Location = new System.Drawing.Point(517, 218);
             this.queryDisplayBox.Multiline = true;
             this.queryDisplayBox.Name = "queryDisplayBox";
             this.queryDisplayBox.ReadOnly = true;
-            this.queryDisplayBox.Size = new System.Drawing.Size(408, 70);
+            this.queryDisplayBox.Size = new System.Drawing.Size(408, 65);
             this.queryDisplayBox.TabIndex = 22;
+            // 
+            // AmountL
+            // 
+            this.AmountL.AutoSize = true;
+            this.AmountL.Location = new System.Drawing.Point(31, 296);
+            this.AmountL.Name = "AmountL";
+            this.AmountL.Size = new System.Drawing.Size(0, 12);
+            this.AmountL.TabIndex = 23;
+            // 
+            // AmountN
+            // 
+            this.AmountN.AutoSize = true;
+            this.AmountN.Location = new System.Drawing.Point(108, 296);
+            this.AmountN.Name = "AmountN";
+            this.AmountN.Size = new System.Drawing.Size(0, 12);
+            this.AmountN.TabIndex = 24;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 712);
+            this.ClientSize = new System.Drawing.Size(999, 657);
+            this.Controls.Add(this.AmountN);
+            this.Controls.Add(this.AmountL);
             this.Controls.Add(this.queryDisplayBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
@@ -405,6 +425,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox queryDisplayBox;
+        private System.Windows.Forms.Label AmountL;
+        private System.Windows.Forms.Label AmountN;
     }
 }
 

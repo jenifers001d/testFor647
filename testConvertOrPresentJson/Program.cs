@@ -22,9 +22,12 @@ namespace testConvertOrPresentJson
         }
         public static void BuildIndex_Click(string sourcePath, string indexPath) {
             LuceneIndexSearch mySearch = new LuceneIndexSearch();
+            DateTime IndexS = System.DateTime.Now;   // [Time] Start creating index
             mySearch.CreateIndex(indexPath);
             mySearch.IndexText(sourcePath);
             mySearch.CleanUpIndexer();
+            DateTime IndexF = System.DateTime.Now;   // [Time] Creating index is finished
+            MessageBox.Show("This indexing process has completed in " + (IndexF - IndexS).TotalMilliseconds + " milliseconds", "Total Indexing Time", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         //public static string SearchIndex_Click(string queryText, string indexPath)

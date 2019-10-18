@@ -80,11 +80,17 @@ namespace testConvertOrPresentJson
 
                 //resultTextBox.Text = Program.SearchIndex_Click(TextBoxQueryInput.Text, IndexDirSearch.Text);
 
-                //[Sam] Put the result into ListView               
-                resultListDict = Program.SearchIndex_Click(queries, IndexDirSearch.Text);
+                DateTime SearchS = System.DateTime.Now;   // [Time] Start searching
+                resultListDict = Program.SearchIndex_Click(queries, IndexDirSearch.Text); //Put the result into ListView   
+                DateTime SearchF = System.DateTime.Now;   // [Time] Finished searching
+                //Pop-up the total searching time
+                MessageBox.Show("This searching has completed in " + (SearchF - SearchS).TotalMilliseconds + " milliseconds", "Total Searching Time", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 string q = Program.DisplayProcessedQueries(queries);
                 queryDisplayBox.Text += q;
+
+                AmountL.Text = "Result Amount:"; //Show result amount title
+                AmountN.Text = resultListDict.Count.ToString(); //Show the amount of result
 
                 limit = 0;               
                 totalPage = Convert.ToInt32(Math.Ceiling((double)resultListDict.Count / 10));
