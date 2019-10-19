@@ -50,9 +50,15 @@ namespace testConvertOrPresentJson
 
         private void buildIndexBtn_Click(object sender, EventArgs e)
         {
-            if (indexPath != null && resourcePath != null) {
+            if (indexPath != null && resourcePath != null)
+            {
+                Cursor.Current = Cursors.WaitCursor;
                 Program.BuildIndex_Click(resourcePath, indexPath);
             }
+            else {
+                MessageBox.Show("Please select resource and index directory.","Error Massage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Cursor.Current = Cursors.Default;
         }
 
         private void resultTextBox_TextChanged(object sender, EventArgs e)
@@ -71,10 +77,12 @@ namespace testConvertOrPresentJson
             if (TextBoxQueryInput != null)
             {
                 string queries;
-                if (!queryIsPhrase){ // If queries is regarded as tokens
+                if (!queryIsPhrase)
+                { // If queries is regarded as tokens
                     queries = TextBoxQueryInput.Text;
                 }
-                else{ // If queries is regarded as a phrase (As Is)
+                else
+                { // If queries is regarded as a phrase (As Is)
                     queries = "\"" + TextBoxQueryInput.Text + "\"";
                 }
 
@@ -92,23 +100,28 @@ namespace testConvertOrPresentJson
                 AmountL.Text = "Result Amount:"; //Show result amount title
                 AmountN.Text = resultListDict.Count.ToString(); //Show the amount of result
 
-                limit = 0;               
+                limit = 0;
                 totalPage = Convert.ToInt32(Math.Ceiling((double)resultListDict.Count / 10));
                 if (totalPage == 0)
                 {
                     currentPage = 0;
                 }
-                else {
+                else
+                {
                     currentPage = 1;
                 }
                 Console.WriteLine(resultListDict.Count);
                 Console.WriteLine(totalPage);
                 pageLabel.Text = "Page " + currentPage + " of " + totalPage;
-                if (totalPage > 1) { // If page is more than 1, enable next button
+                if (totalPage > 1)
+                { // If page is more than 1, enable next button
                     nextBtn.Enabled = true;
                 }
                 ViewData(limit, resultListDict);
                 saveResultBtn.Enabled = true;
+            }
+            else {
+                MessageBox.Show("Please input queries.", "Error Massage", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

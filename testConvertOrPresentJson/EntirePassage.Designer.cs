@@ -37,11 +37,12 @@
             this.entirePassageBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.entirePassageBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.entirePassageBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.entirePassageBox.Location = new System.Drawing.Point(12, 0);
+            this.entirePassageBox.Location = new System.Drawing.Point(12, 5);
             this.entirePassageBox.Multiline = true;
             this.entirePassageBox.Name = "entirePassageBox";
+            this.entirePassageBox.ReadOnly = true;
             this.entirePassageBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.entirePassageBox.Size = new System.Drawing.Size(544, 249);
+            this.entirePassageBox.Size = new System.Drawing.Size(544, 244);
             this.entirePassageBox.TabIndex = 0;
             // 
             // EntirePassage
