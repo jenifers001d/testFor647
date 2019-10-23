@@ -61,20 +61,11 @@ namespace testConvertOrPresentJson
             Cursor.Current = Cursors.Default;
         }
 
-        private void resultTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBoxQueryInput_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
             queryDisplayBox.Text = "Display final queries:\r\n";
-            if (TextBoxQueryInput != null)
+            if (TextBoxQueryInput.Text.Length != 0)
             {
                 string queries;
                 if (!queryIsPhrase)

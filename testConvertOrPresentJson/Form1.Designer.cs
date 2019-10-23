@@ -139,7 +139,7 @@
             // 
             this.LabelQuery.AutoSize = true;
             this.LabelQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelQuery.Location = new System.Drawing.Point(28, 216);
+            this.LabelQuery.Location = new System.Drawing.Point(56, 242);
             this.LabelQuery.Name = "LabelQuery";
             this.LabelQuery.Size = new System.Drawing.Size(78, 16);
             this.LabelQuery.TabIndex = 8;
@@ -147,18 +147,17 @@
             // 
             // TextBoxQueryInput
             // 
-            this.TextBoxQueryInput.Location = new System.Drawing.Point(31, 236);
+            this.TextBoxQueryInput.Location = new System.Drawing.Point(59, 262);
             this.TextBoxQueryInput.Name = "TextBoxQueryInput";
             this.TextBoxQueryInput.Size = new System.Drawing.Size(278, 20);
             this.TextBoxQueryInput.TabIndex = 9;
-            this.TextBoxQueryInput.TextChanged += new System.EventHandler(this.TextBoxQueryInput_TextChanged);
             // 
             // SearchButton
             // 
             this.SearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchButton.Location = new System.Drawing.Point(340, 245);
+            this.SearchButton.Location = new System.Drawing.Point(368, 252);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(104, 52);
+            this.SearchButton.Size = new System.Drawing.Size(132, 45);
             this.SearchButton.TabIndex = 10;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
@@ -168,7 +167,7 @@
             // 
             this.LabelIndexForSearch.AutoSize = true;
             this.LabelIndexForSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelIndexForSearch.Location = new System.Drawing.Point(611, 177);
+            this.LabelIndexForSearch.Location = new System.Drawing.Point(56, 187);
             this.LabelIndexForSearch.Name = "LabelIndexForSearch";
             this.LabelIndexForSearch.Size = new System.Drawing.Size(165, 16);
             this.LabelIndexForSearch.TabIndex = 11;
@@ -176,7 +175,7 @@
             // 
             // IndexDirSearch
             // 
-            this.IndexDirSearch.Location = new System.Drawing.Point(614, 199);
+            this.IndexDirSearch.Location = new System.Drawing.Point(59, 209);
             this.IndexDirSearch.Name = "IndexDirSearch";
             this.IndexDirSearch.Size = new System.Drawing.Size(278, 20);
             this.IndexDirSearch.TabIndex = 12;
@@ -184,7 +183,7 @@
             // 
             // IndexBrowseSearchBtn
             // 
-            this.IndexBrowseSearchBtn.Location = new System.Drawing.Point(907, 199);
+            this.IndexBrowseSearchBtn.Location = new System.Drawing.Point(352, 209);
             this.IndexBrowseSearchBtn.Name = "IndexBrowseSearchBtn";
             this.IndexBrowseSearchBtn.Size = new System.Drawing.Size(75, 23);
             this.IndexBrowseSearchBtn.TabIndex = 13;
@@ -249,7 +248,7 @@
             // 
             this.prevBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.prevBtn.Enabled = false;
-            this.prevBtn.Location = new System.Drawing.Point(280, 639);
+            this.prevBtn.Location = new System.Drawing.Point(280, 634);
             this.prevBtn.Name = "prevBtn";
             this.prevBtn.Size = new System.Drawing.Size(110, 33);
             this.prevBtn.TabIndex = 15;
@@ -261,7 +260,7 @@
             // 
             this.nextBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.nextBtn.Enabled = false;
-            this.nextBtn.Location = new System.Drawing.Point(426, 639);
+            this.nextBtn.Location = new System.Drawing.Point(426, 634);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(110, 33);
             this.nextBtn.TabIndex = 16;
@@ -273,7 +272,7 @@
             // 
             this.pageLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pageLabel.AutoSize = true;
-            this.pageLabel.Location = new System.Drawing.Point(677, 649);
+            this.pageLabel.Location = new System.Drawing.Point(677, 644);
             this.pageLabel.Name = "pageLabel";
             this.pageLabel.Size = new System.Drawing.Size(0, 13);
             this.pageLabel.TabIndex = 17;
@@ -285,7 +284,7 @@
             this.queryOptComboBox.Items.AddRange(new object[] {
             "Default",
             "As Is"});
-            this.queryOptComboBox.Location = new System.Drawing.Point(31, 283);
+            this.queryOptComboBox.Location = new System.Drawing.Point(59, 309);
             this.queryOptComboBox.Name = "queryOptComboBox";
             this.queryOptComboBox.Size = new System.Drawing.Size(75, 23);
             this.queryOptComboBox.TabIndex = 18;
@@ -316,7 +315,7 @@
             this.groupBox1.Controls.Add(this.indexDir);
             this.groupBox1.Controls.Add(this.indexBrowerBtn);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(53, 26);
+            this.groupBox1.Location = new System.Drawing.Point(46, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(893, 148);
             this.groupBox1.TabIndex = 20;
@@ -327,7 +326,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 263);
+            this.label3.Location = new System.Drawing.Point(56, 289);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 16);
             this.label3.TabIndex = 21;
@@ -338,17 +337,17 @@
             this.queryDisplayBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.queryDisplayBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.queryDisplayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.queryDisplayBox.Location = new System.Drawing.Point(517, 236);
+            this.queryDisplayBox.Location = new System.Drawing.Point(588, 209);
             this.queryDisplayBox.Multiline = true;
             this.queryDisplayBox.Name = "queryDisplayBox";
             this.queryDisplayBox.ReadOnly = true;
-            this.queryDisplayBox.Size = new System.Drawing.Size(408, 70);
+            this.queryDisplayBox.Size = new System.Drawing.Size(337, 97);
             this.queryDisplayBox.TabIndex = 22;
             // 
             // AmountL
             // 
             this.AmountL.AutoSize = true;
-            this.AmountL.Location = new System.Drawing.Point(31, 321);
+            this.AmountL.Location = new System.Drawing.Point(378, 314);
             this.AmountL.Name = "AmountL";
             this.AmountL.Size = new System.Drawing.Size(0, 13);
             this.AmountL.TabIndex = 23;
@@ -356,7 +355,7 @@
             // AmountN
             // 
             this.AmountN.AutoSize = true;
-            this.AmountN.Location = new System.Drawing.Point(108, 321);
+            this.AmountN.Location = new System.Drawing.Point(455, 314);
             this.AmountN.Name = "AmountN";
             this.AmountN.Size = new System.Drawing.Size(0, 13);
             this.AmountN.TabIndex = 24;
@@ -386,6 +385,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kingsland System";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

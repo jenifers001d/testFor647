@@ -8,7 +8,7 @@ using Lucene.Net.Documents; // for Document and Field
 using Lucene.Net.Index; // for Index Writer
 using Lucene.Net.Store; // for Directory
 using Lucene.Net.Search; // for IndexSearcher
-using Lucene.Net.QueryParsers;  // for QueryParser
+using Lucene.Net.QueryParsers;  // for QueryParse<DirectedGraph DataVirtualized="True" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
 using System.IO;
 using Newtonsoft.Json.Linq;
 using System.Text.RegularExpressions;
@@ -74,10 +74,10 @@ namespace testConvertOrPresentJson
                     string text = p[TEXT_FN_PASS_TEXT].ToString();
                     string url = p[TEXT_FN_URL].ToString();
                     string id = p[TEXT_FN_PASS_ID].ToString();
-                    Lucene.Net.Documents.Field field1 = new Field(TEXT_FN_PASS_TEXT, text, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
-                    Lucene.Net.Documents.Field field2 = new Field(TEXT_FN_URL, url, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
-                    Lucene.Net.Documents.Field field3 = new Field(TEXT_FN_PASS_ID, id, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
-                    Lucene.Net.Documents.Field field4 = new Field(TEXT_FN_QUERY_ID, queryId, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
+                    Lucene.Net.Documents.Field field1 = new Field(TEXT_FN_PASS_TEXT, text, Field.Store.YES, Field.Index.ANALYZED_NO_NORMS, Field.TermVector.NO); // Baseline requirement
+                    Lucene.Net.Documents.Field field2 = new Field(TEXT_FN_URL, url, Field.Store.YES, Field.Index.ANALYZED_NO_NORMS, Field.TermVector.NO); // Baseline requirement
+                    Lucene.Net.Documents.Field field3 = new Field(TEXT_FN_PASS_ID, id, Field.Store.YES, Field.Index.NO, Field.TermVector.NO);
+                    Lucene.Net.Documents.Field field4 = new Field(TEXT_FN_QUERY_ID, queryId, Field.Store.YES, Field.Index.NO, Field.TermVector.NO);
 
                     Lucene.Net.Documents.Document doc = new Document();
                     doc.Add(field1);
